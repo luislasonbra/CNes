@@ -101,6 +101,7 @@
     <Compile Include="GFX\PPUCore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screen\NESRenderer.cs" />
     <Compile Include="Screen\Renderers\BMP16Renderer.cs" />
     <EmbeddedResource Include="DWindow.resx">
       <DependentUpon>DWindow.cs</DependentUpon>

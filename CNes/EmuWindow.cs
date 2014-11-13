@@ -11,6 +11,8 @@ using System.IO;
 using System.Reflection;
 using CNes.Core;
 using CNes.Cartridge;
+using CNes.Screen;
+using CNes.GFX;
 using CNes.Screen.Renderers;
 
 namespace CNes
@@ -24,6 +26,8 @@ namespace CNes
         NES6502 cpu;
         NESCore nes;
         Cart cr;
+        PPUCore ppu;
+        NESRenderer ren;
 
         public EmuWindow()
         {
@@ -148,11 +152,15 @@ namespace CNes
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 fileName = ofd.FileName;
-
+                //START INIT CODE
                 cr = cs.ReadCart(fileName);
                 nes = new NESCore(cr);
                 cpu = new NES6502(cr, nes);
+                ren = new BMP16Renderer(cr);
+                ppu = new PPUCore(cr);
+
                 cpu.pc_reg = nes.GetResetAddr();
+                //END INIT CODE
                 MessageBox.Show("PRG ROM loaded!!!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 buttons(true);
             }
@@ -161,7 +169,6 @@ namespace CNes
         private void stepTEMPToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BMP16Renderer render = new BMP16Renderer(cr);
-            screen.Image = render.Render();
         }
 
         private void nTSCToolStripMenuItem_Click(object sender, EventArgs e)

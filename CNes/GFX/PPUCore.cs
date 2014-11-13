@@ -24,8 +24,9 @@ namespace CNes.GFX
     class PPUCore
     {
         byte[][] chrRom;
-        short current_scanline = 0;
-        ushort cur_pat_offset = 0x0;
+        int cur_scanline = 0;
+        long ticks = 0; //Might integrate this into something else later?
+        ushort cur_back_offset = 0x0;
         ushort sa_reg = 0x0; //Pattern shift register A
         ushort sb_reg = 0x0; //Pattern shfit register B
         byte lp_reg = 0x0; //Lower palette 8-bit shift register
@@ -39,23 +40,46 @@ namespace CNes.GFX
         public void RenderScanline()
         {
             #region TEMPORARY SOLUTION, FIX LATER
-            sa_reg = Read8(cur_pat_offset); //Load both shift registers with pattern data
-            sb_reg = Read8((ushort)(cur_pat_offset + 0x8));
+            //Load both shift registers with pattern data
+            sa_reg = Read8(cur_back_offset); 
+            sb_reg = Read8((ushort)(cur_back_offset + 0x8));
+            cur_back_offset += 0x8;
 
+            byte[] finRender = new byte[8]; //VALUE 8 IS TEMPORARY (DRAWING A TILE FIRST);
+            for (int renderI = 0; renderI < 8; renderI++)
+            {
+                finRender[renderI] = (byte)(((sa_reg & 1) << 1) | (sb_reg & 1));
+                sa_reg >>= 1; sb_reg >>= 1;
+                if (renderI % 8 == 0) //Reload the shift registers every 8 cycles, kind of slow (maybe implement some kind of loop unrolling?)
+                {
+                    sa_reg = Read8(cur_back_offset);
+                    sb_reg = Read8((ushort)(cur_back_offset + 0x8));
+                }
+            }
             #endregion
         }
-        #region PPU Memory accesses
+        public void DoPPUCycle()
+        {
+
+        }
+        #region PPU Memory accesses (all takes 2 ticks)
         public byte Read8(ushort ppuAddr)
         {
+            byte ret = 0x0;
             if (ppuAddr < 0x1000)
             {
-                return chrRom[0][ppuAddr];
+                ret = chrRom[0][ppuAddr];
             }
             else if (ppuAddr < 0x2000)
             {
-                return chrRom[1][ppuAddr - 0x1000];
+                ret = chrRom[1][ppuAddr - 0x1000];
             }
-            return 0;
+            else if (ppuAddr < 0x3000)
+            {
+                ret = chrRom[2][ppuAddr - 0x2000];
+            }
+            ticks += 2;
+            return ret;
         }
         #endregion
     }
