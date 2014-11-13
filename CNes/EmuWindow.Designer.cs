@@ -52,6 +52,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.screen = new System.Windows.Forms.PictureBox();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.dODEBUGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.screen)).BeginInit();
@@ -109,7 +111,9 @@
             // 
             this.emulatorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resetToolStripMenuItem,
-            this.pauseToolStripMenuItem});
+            this.pauseToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.dODEBUGToolStripMenuItem});
             this.emulatorToolStripMenuItem.Name = "emulatorToolStripMenuItem";
             this.emulatorToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.emulatorToolStripMenuItem.Text = "Emulator";
@@ -117,13 +121,13 @@
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.resetToolStripMenuItem.Text = "Reset";
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pauseToolStripMenuItem.Text = "Pause";
             // 
             // videoToolStripMenuItem
@@ -236,6 +240,18 @@
             this.screen.TabIndex = 10;
             this.screen.TabStop = false;
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            // 
+            // dODEBUGToolStripMenuItem
+            // 
+            this.dODEBUGToolStripMenuItem.Name = "dODEBUGToolStripMenuItem";
+            this.dODEBUGToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dODEBUGToolStripMenuItem.Text = "DO DEBUG";
+            this.dODEBUGToolStripMenuItem.Click += new System.EventHandler(this.dODEBUGToolStripMenuItem_Click);
+            // 
             // EmuWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,6 +302,8 @@
         private System.Windows.Forms.ToolStripMenuItem nTSCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pALToolStripMenuItem;
         private System.Windows.Forms.PictureBox screen;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem dODEBUGToolStripMenuItem;
     }
 }
 

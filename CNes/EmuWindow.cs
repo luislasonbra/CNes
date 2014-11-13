@@ -27,7 +27,7 @@ namespace CNes
         NESCore nes;
         Cart cr;
         PPUCore ppu;
-        NESRenderer ren;
+        IRenderer ren;
 
         public EmuWindow()
         {
@@ -157,7 +157,7 @@ namespace CNes
                 nes = new NESCore(cr);
                 cpu = new NES6502(cr, nes);
                 ren = new BMP16Renderer(cr);
-                ppu = new PPUCore(cr);
+                ppu = new PPUCore(cr, ren);
 
                 cpu.pc_reg = nes.GetResetAddr();
                 //END INIT CODE
@@ -176,6 +176,11 @@ namespace CNes
             nTSCToolStripMenuItem.Checked = true;
             pALToolStripMenuItem.Checked = false;
             
+        }
+
+        private void dODEBUGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ppu.RenderScanline();
         }
     }
 }

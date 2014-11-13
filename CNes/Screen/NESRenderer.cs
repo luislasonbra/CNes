@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
 namespace CNes.Screen
 {
-    class NESRenderer
+    interface IRenderer
     {
         //Class to define any NES renderer, I guess
+        void InitRenderer();
+        Image Render(byte[] input);
     }
 }

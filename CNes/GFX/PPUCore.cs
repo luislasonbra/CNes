@@ -5,6 +5,8 @@ using System.Text;
 using System.IO;
 using CNes.Core;
 using CNes.Cartridge;
+using CNes.Screen;
+using CNes.Screen.Renderers;
 
 namespace CNes.GFX
 {
@@ -31,9 +33,11 @@ namespace CNes.GFX
         ushort sb_reg = 0x0; //Pattern shfit register B
         byte lp_reg = 0x0; //Lower palette 8-bit shift register
         byte hp_reg = 0x0; //High palette 8-bit shift register
-        public PPUCore(Cart c)
+        IRenderer renderer;
+        public PPUCore(Cart c, IRenderer r)
         {
-            this.chrRom = c.chrRom;
+            chrRom = c.chrRom;
+            renderer = r;
         }
         
         //I guess this will be our main ppu-control function, so we'll stick with it
