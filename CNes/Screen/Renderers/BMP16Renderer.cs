@@ -30,7 +30,7 @@ namespace CNes.Screen.Renderers
             InitRenderer();
         }
 
-        public unsafe Image Render(byte[] input) //Byte array parameter is the input array for the scanline being passed to the renderer
+        public Image Render(byte[] input) //Byte array parameter is the input array for the scanline being passed to the renderer
         {
             BitmapData bData = bmp.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
             IntPtr ptr = bData.Scan0;
