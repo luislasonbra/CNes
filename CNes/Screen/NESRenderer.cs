@@ -8,7 +8,7 @@ namespace CNes.Screen
 {
     interface IRenderer
     {
-        //Class to define any NES renderer, I guess
+        //Class to define any NES renderer
         void InitRenderer();
         Image Render(byte[] input);
     }

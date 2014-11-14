@@ -32,11 +32,14 @@ namespace CNes.Screen.Renderers
 
         public Image Render(byte[] input) //Byte array parameter is the input array for the scanline being passed to the renderer
         {
-            BitmapData bData = bmp.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-            IntPtr ptr = bData.Scan0;
-            Marshal.Copy(input, 0, ptr, height * width * 3);
-            bmp.UnlockBits(bData);
-            //g.DrawRectangle(pen, rect); //I think we're manipulating a Graphics instance to draw on a bitmap, so we'll return that bitmap
+            //Create better renderer later, but now we're just going to use some ghetto monochrome half-assed custom renderer.
+            for (int l = 0; l < input.Length; l++) //I have reasons to not use a for-each
+            {
+                if (input[l] != 0)
+                {
+                    bmp.SetPixel(0, l, Color.Black);
+                }
+            }
 
             return bmp; //Returns the image to be used in the picturebox???????
         }
