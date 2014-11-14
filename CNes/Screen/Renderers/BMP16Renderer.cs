@@ -18,7 +18,6 @@ namespace CNes.Screen.Renderers
         bool isRendering = false;
 
         Bitmap bmp;
-        Graphics g;
         Cart c;
 
         int height;
@@ -57,7 +56,6 @@ namespace CNes.Screen.Renderers
                     height = 240;
                     break;
             }
-            g = Graphics.FromImage(bmp);
         }
     }
 }

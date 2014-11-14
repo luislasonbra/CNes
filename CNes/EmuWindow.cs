@@ -180,8 +180,7 @@ namespace CNes
 
         private void dODEBUGToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ppu.RenderScanline();
-            ren.Render(finRender);
+            ren.Render(ppu.RenderScanline());
         }
     }
 }
