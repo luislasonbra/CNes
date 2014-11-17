@@ -10,7 +10,7 @@ using CNes.Cartridge;
 
 namespace CNes.Screen.Renderers
 {
-    //Just NTSC for now
+    //Just NTSC for now.
     //Draw bitmaps to a control (Probably a PictureBox, but if this is too slow, I'll come up with something new)
     class BMP16Renderer : IRenderer
     {
