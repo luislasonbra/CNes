@@ -10,6 +10,6 @@ namespace CNes.Screen
     {
         //Class to define any NES renderer
         void InitRenderer();
-        Image Render(byte[] input);
+        Image Render(byte[] input, ushort curScanline);
     }
 }

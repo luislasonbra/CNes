@@ -188,7 +188,7 @@ namespace CNes
             }
             //End debug code
 
-            screen.Image = ren.Render(ppu.RenderScanline());
+            screen.Image = ren.Render(ppu.RenderScanline(), 0);
         }
     }
 }
