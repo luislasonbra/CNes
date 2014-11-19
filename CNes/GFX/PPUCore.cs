@@ -49,8 +49,8 @@ namespace CNes.GFX
             sb_reg = Read8((ushort)(cur_back_offset + 0x8));
             cur_back_offset += 0x8;
 
-            byte[] finRender = new byte[8]; //VALUE 8 IS TEMPORARY (DRAWING A TILE FIRST);
-            for (int renderI = 0; renderI < 8; renderI++)
+            byte[] finRender = new byte[256]; //VALUE 8 IS TEMPORARY (DRAWING A TILE FIRST);
+            for (int renderI = 0; renderI < 256; renderI++)
             {
                 finRender[renderI] = (byte)(((sa_reg & 1) << 1) | (sb_reg & 1));
                 sa_reg >>= 1; sb_reg >>= 1;

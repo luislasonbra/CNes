@@ -36,7 +36,8 @@ namespace CNes.Screen.Renderers
             {
                 if (input[l] != 0)
                 {
-                    bmp.SetPixel(0, l, Color.Black);
+                    //This assumes scanlines go vertically, but maybe they go horizontally (would be a very easy fix)
+                    bmp.SetPixel(l, 0, Color.Black);
                 }
             }
 
