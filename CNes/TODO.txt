@@ -1,0 +1,19 @@
+﻿TODO:
+
+CRITICAL:
+-Get the PPU working!
+-Make the CPU recognize when it's switching pages (and add the accompanying cycles)
+MEDIUM:
+-Optimize the CPU! There's a lot to be done.
+	1. Stop checking addressing modes for the basic addressing modes (given)
+	2. ...
+-Optimize the PPU! Tons to do.
+	1. Implement some kind of manual loop unrolling in RenderScanline() (http://goo.gl/ImM5aN);
+	2. ...
+LOW:
+-Possibly structure the code better.
+-Clean up EmuWindow.cs FFS!
+
+
+FEATURES:
+-Add a memory viewer (maybe a live updater in the future?)

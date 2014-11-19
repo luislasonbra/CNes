@@ -49,12 +49,12 @@ namespace CNes.GFX
             sb_reg = Read8((ushort)(cur_back_offset + 0x8));
             cur_back_offset += 0x8;
 
-            byte[] finRender = new byte[256]; //VALUE 8 IS TEMPORARY (DRAWING A TILE FIRST); 
+            byte[] finRender = new byte[256]; //Value is temporary
             for (int renderI = 0; renderI < 256; renderI++)
             {
                 finRender[renderI] = (byte)(((sa_reg & 1) << 1) | (sb_reg & 1));
                 sa_reg >>= 1; sb_reg >>= 1;
-                if (renderI % 8 == 0) //Reload the shift registers every 8 cycles, kind of slow (maybe implement some kind of loop unrolling?)
+                if (renderI % 8 == 0) //Reload the shift registers every 8 cycles, kind of slow (maybe implement some kind of loop unrolling?) (documented in TODO file)
                 {
                     sa_reg = Read8(cur_back_offset);
                     sb_reg = Read8((ushort)(cur_back_offset + 0x8));
