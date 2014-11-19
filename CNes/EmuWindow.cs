@@ -7,7 +7,6 @@ using System.Linq;
 using System.Threading;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
 using System.Reflection;
 using CNes.Core;
 using CNes.Cartridge;
