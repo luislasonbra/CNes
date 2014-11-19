@@ -180,12 +180,15 @@ namespace CNes
 
         private void dODEBUGToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //byte[] toRender = ppu.RenderScanline();
-            //txtConsole.Text += "ToRender:" + Environment.NewLine;
-            //foreach (byte b in toRender)
-            //{
-            //    txtConsole.Text += b + " ";
-            //}
+            //Start debug code
+            byte[] toRender = ppu.RenderScanline();
+            txtConsole.Text += "ToRender:" + Environment.NewLine;
+            foreach (byte b in toRender)
+            {
+                txtConsole.Text += b + " ";
+            }
+            //End debug code
+
             screen.Image = ren.Render(ppu.RenderScanline());
         }
     }
