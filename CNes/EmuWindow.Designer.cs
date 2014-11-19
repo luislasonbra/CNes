@@ -38,6 +38,8 @@
             this.emulatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.dODEBUGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.videoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tVModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nTSCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,8 +54,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.screen = new System.Windows.Forms.PictureBox();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.dODEBUGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.screen)).BeginInit();
@@ -121,14 +121,26 @@
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.resetToolStripMenuItem.Text = "Reset";
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.pauseToolStripMenuItem.Text = "Pause";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(128, 6);
+            // 
+            // dODEBUGToolStripMenuItem
+            // 
+            this.dODEBUGToolStripMenuItem.Name = "dODEBUGToolStripMenuItem";
+            this.dODEBUGToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.dODEBUGToolStripMenuItem.Text = "DO DEBUG";
+            this.dODEBUGToolStripMenuItem.Click += new System.EventHandler(this.dODEBUGToolStripMenuItem_Click);
             // 
             // videoToolStripMenuItem
             // 
@@ -240,18 +252,6 @@
             this.screen.TabIndex = 10;
             this.screen.TabStop = false;
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
-            // 
-            // dODEBUGToolStripMenuItem
-            // 
-            this.dODEBUGToolStripMenuItem.Name = "dODEBUGToolStripMenuItem";
-            this.dODEBUGToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.dODEBUGToolStripMenuItem.Text = "DO DEBUG";
-            this.dODEBUGToolStripMenuItem.Click += new System.EventHandler(this.dODEBUGToolStripMenuItem_Click);
-            // 
             // EmuWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,7 +265,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "EmuWindow";
-            this.Text = "CNes α0.1";
+            this.Text = "CNes α0.1.1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
