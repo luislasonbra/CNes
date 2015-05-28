@@ -43,25 +43,7 @@ namespace CNes.GFX
         //I guess this will be our main ppu-control function, so we'll stick with it
         public byte[] RenderScanline()
         {
-            #region TEMPORARY SOLUTION, FIX LATER
-            //Load both shift registers with pattern data
-            sa_reg = Read8(cur_back_offset); 
-            sb_reg = Read8((ushort)(cur_back_offset + 0x8));
-            cur_back_offset += 0x8;
-
-            byte[] finRender = new byte[512]; //Value is temporary
-            for (int renderI = 0; renderI < 512; renderI++)
-            {
-                finRender[renderI] = (byte)(((sa_reg & 1) << 1) | (sb_reg & 1));
-                sa_reg >>= 1; sb_reg >>= 1;
-                if (renderI % 8 == 0) //Reload the shift registers every 8 cycles, kind of slow (maybe implement some kind of loop unrolling?) (documented in TODO file)
-                {
-                    sa_reg = Read8(cur_back_offset);
-                    sb_reg = Read8((ushort)(cur_back_offset + 0x8));
-                }
-            }
-            return finRender;
-            #endregion
+            return new byte[2];
         }
         public void DoPPUCycle()
         {
